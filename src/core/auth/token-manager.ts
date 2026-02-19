@@ -6,7 +6,6 @@ export class TokenManager {
   constructor(private fetchToken: () => Promise<any>) {}
 
   async getToken() {
-
     if (this.token && Date.now() < this.expiresAt!) {
       return this.token;
     }
@@ -27,8 +26,7 @@ export class TokenManager {
     const res = await this.fetchToken();
 
     this.token = res.access_token;
-    this.expiresAt =
-      Date.now() + res.expires_in * 1000 - 30000;
+    this.expiresAt = Date.now() + res.expires_in * 1000 - 30000;
 
     return this.token!;
   }
