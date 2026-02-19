@@ -25,6 +25,10 @@ export interface RateRequest {
 export interface RateQuote {
   carrier: string;
   serviceCode: string;
+  serviceName?: string;
   amount: number;
   currency: string;
+  baseCharge?: number;
+  transportationCharge?: number;
+  alerts?: string[];
 }
