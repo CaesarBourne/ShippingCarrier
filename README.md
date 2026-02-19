@@ -664,14 +664,6 @@ npm run lint     # Check code quality (ESLint/Prettier)
 
 ---
 
-## Support
-
-For issues or questions:
-
-1. Check the [Postman Collection](https://developer.ups.com/tag/Rating)
-2. Review [UPS API Docs](https://developer.ups.com/api/reference)
-3. Check existing tests for examples
-4. Open an issue with error code and request details
 
 ---
 
