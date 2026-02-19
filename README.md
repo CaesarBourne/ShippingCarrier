@@ -32,12 +32,12 @@ A production-grade TypeScript service that integrates with the UPS Rating API to
 
 ### Key Features
 
-- ✅ **OAuth 2.0 Client-Credentials** — Token acquisition, caching, automatic refresh
-- ✅ **Request Validation** — Strong types with Zod runtime validation
-- ✅ **Comprehensive Error Handling** — 8 error types for all failure scenarios
-- ✅ **Type Safety** — Full TypeScript with no `any` types
-- ✅ **Extensible Design** — Add FedEx/USPS without modifying UPS code
-- ✅ **Stubbed Testing** — 100% test coverage with nock (no live API calls)
+- ✅ **OAuth 2.0 Client-Credentials** - Token acquisition, caching, automatic refresh
+- ✅ **Request Validation** - Strong types with Zod runtime validation
+- ✅ **Comprehensive Error Handling** - 8 error types for all failure scenarios
+- ✅ **Type Safety** - Full TypeScript with no `any` types
+- ✅ **Extensible Design** - Add FedEx/USPS without modifying UPS code
+- ✅ **Stubbed Testing** - 100% test coverage with nock (no live API calls)
 
 ---
 
@@ -361,17 +361,17 @@ try {
   const rates = await service.getRates(request);
 } catch (error) {
   if (error instanceof ValidationError) {
-    // User's fault — invalid input
+    // User's fault - invalid input
     // Log error, return 400 to API caller
     logger.warn('Invalid request:', error.details);
     res.status(400).json({ error: error.message, details: error.details });
   } else if (error instanceof AuthenticationError) {
     // Configuration issue
     // Log error, alert ops
-    logger.error('UPS auth failed — check credentials');
+    logger.error('UPS auth failed - check credentials');
     res.status(503).json({ error: 'Service unavailable, please retry' });
   } else if (error instanceof TimeoutError || error instanceof HttpServerError) {
-    // Transient issue — retry
+    // Transient issue - retry
     // Exponential backoff recommended
     logger.info(`Retryable error: ${error.code}`, { retryAfter: '5s' });
     res.status(503).json({ error: 'Service temporarily unavailable' });
@@ -651,16 +651,16 @@ npm run lint     # Check code quality (ESLint/Prettier)
 
 ## TODO: What Would Be Done With More Time
 
-1. **Retry Logic** — Exponential backoff for transient errors
-2. **Request/Response Logging** — Audit trail of all rate requests
-3. **Rate Caching** — Cache rates for 15 min to reduce API calls
-4. **Metrics** — Track response times, error rates, carrier comparison
-5. **Webhook Notifications** — Async rate updates
-6. **Admin Console** — Monitor usage, view rate history
-7. **FedEx/USPS Integration** — Full multi-carrier support
-8. **Rate Rules Engine** — Apply business rules (min/max markup, regional rules)
-9. **Label Purchase & Tracking** — Complete shipping solution
-10. **Database Persistence** — Store rates for analytics
+1. **Retry Logic** - Exponential backoff for transient errors
+2. **Request/Response Logging** - Audit trail of all rate requests
+3. **Rate Caching** - Cache rates for 15 min to reduce API calls
+4. **Metrics** - Track response times, error rates, carrier comparison
+5. **Webhook Notifications** - Async rate updates
+6. **Admin Console** - Monitor usage, view rate history
+7. **FedEx/USPS Integration** - Full multi-carrier support
+8. **Rate Rules Engine** - Apply business rules (min/max markup, regional rules)
+9. **Label Purchase & Tracking** - Complete shipping solution
+10. **Database Persistence** - Store rates for analytics
 
 ---
 
