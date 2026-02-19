@@ -1,4 +1,4 @@
-# UPS Shipping Rate Integration
+# Shipping Carrier Rate Integration
 
 A production-grade TypeScript service that integrates with the UPS Rating API to fetch shipping rates. Designed for extensibility to support additional carriers (FedEx, USPS) and operations (label purchase, tracking, address validation).
 
